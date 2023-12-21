@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { moviesApi } from "../../api/moviesApi"
 import { Movies, Result } from "../../interface/movies";
-import NavBar from "../components/NavBar";
 import { MovieCard } from "../components/MovieCard";
 import { Pagination } from "../components/Pagination";
 
@@ -30,8 +29,7 @@ export const HomePage = () => {
     
   return (
     <>
-    <NavBar/>
-    <div className="flex flex-wrap gap-3 justify-center flex-grow-0">      
+    <div className="flex  flex-wrap gap-3 justify-center flex-grow-0 md:m-20">      
       {movies.map(({ id, title, release_date, poster_path }) => (
        <MovieCard
           key={id} 
@@ -41,13 +39,16 @@ export const HomePage = () => {
           poster_path = {poster_path}
        />
       ))}
-      <Pagination
+    </div>
+
+    <div className="flex justify-center mt-2">
+    <Pagination
          totalPage = {totalPage}
          getMovies = {getMovies}
          currentPage = {currentPage}
-         />
-         
-    </div>  
+         /> 
+    </div>
+ 
 
     </>  
   )
