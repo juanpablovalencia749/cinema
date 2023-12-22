@@ -29,7 +29,7 @@ export const HomePage = () => {
     
   return (
     <>
-    <div className="flex  flex-wrap gap-3 justify-center flex-grow-0 md:m-20">      
+    <div className="flex mt-20 flex-wrap gap-3 justify-center flex-grow-0 md:m-20">      
       {movies.map(({ id, title, release_date, poster_path }) => (
        <MovieCard
           key={id} 

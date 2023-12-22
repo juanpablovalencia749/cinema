@@ -21,8 +21,10 @@ export const MoviesPage = () => {
 
   const getMovieDetails = async (id: SelectId): Promise<void> => {
     try {
-      const { data } = await moviesApi.get<Details>(`/movie/${id}`);
+      const { data } = await moviesApi.get<Details>(`/movie/${id}?append_to_response=videos`);
       setMovieDetails(data);
+      console.log(data);
+      
     } catch (error) {
       console.log(error);
     }
@@ -49,8 +51,8 @@ export const MoviesPage = () => {
    {/* <div className="bg-cover w-full  bg-center h-64" style={{ backgroundImage: `url('${urlImg}')`, opacity: 0.8 }}>
     
   </div> */}
-
-    <article className="m-2">
+    <div>
+    <article className="m-2 mt-20">
     {movieDetails ? (        
         <div className="flex flex-col gap-5 border  rounded-lg shadow-lg p-5 md:grid md:grid-cols-2 md:m-20 md:items-center md:p-8">
           <div className="flex items-center flex-col">
@@ -108,7 +110,7 @@ export const MoviesPage = () => {
         <p>Cargando Movie...</p>
       )}
     </article>
-     
+    </div>
     </>
   );
 };
