@@ -10,6 +10,12 @@ export const NavBar = () => {
     { name: "TV Shows", link: "/" },
   ];
 
+  const option = [
+    {item: "hola"},
+    {item: "bueno"},
+    {item: "ok"}
+  ]
+
   const toggleMenu = ():void => {
     setOpenMenu(!openMenu)
   }
@@ -17,6 +23,7 @@ export const NavBar = () => {
   const toggleSearch = (): void => {
     setOpenSearch(!openSearch)
   }
+  
   
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
@@ -60,14 +67,17 @@ export const NavBar = () => {
           }`}
         >
           {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
-              <a
-                href={link.link}
-                className="text-gray-800 hover:text-gray-400 duration-500"
-              >
-                {link.name}
-              </a>
-            </li>
+            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7 relative group">
+            <a href={link.link} className="text-gray-800 hover:text-gray-400 duration-500 block px-4 py-5 transition-all">
+              {link.name}
+            </a>
+            
+            <ul className="absolute hidden bg-purple-700 w-full z-50 group-hover:block mt-2">
+              {option.map(({item}) => (
+              <li key={item}> <a href="#" className="block px-4 py-2 text-white hover:bg-purple-600">{item}</a></li>
+              ))}
+            </ul>
+          </li>
           ))}
         </ul>
 
