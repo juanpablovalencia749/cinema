@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { MdMovieCreation } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { SearchBar } from "../components";
 
 export const NavBar = () => {
   const Links = [
@@ -46,13 +47,8 @@ export const NavBar = () => {
         </div>
 
        
-
-         <div className={`absolute right-16 top-5 transition-all duration-700 ease-out transform ${openSearch ? 'scale-100 bounce' : 'scale-0 pointer-events-none'} md:scale-100 md:pointer-events-auto`}>
-          <input 
-          className="w-36 md:w-52 border border-solid rounded-full p-1"
-          type="text"
-          placeholder="Search" />
-        </div>
+        <SearchBar openSearch ={openSearch}/>
+         
 
         <div
           onClick={toggleMenu}

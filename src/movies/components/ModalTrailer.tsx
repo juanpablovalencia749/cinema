@@ -3,14 +3,12 @@ import { Modal } from "keep-react";
 import YouTube from 'react-youtube';
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
-
 interface Props  {
   trailerKey:string
 }
 
 export const ModalTrailer :React.FC<Props> = ({ trailerKey }) => {
   const [showModal, setShowModal] = useState(false);
- 
 
   const onClickOne = () => {
     setShowModal(!showModal);

@@ -10,14 +10,12 @@ export const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const getMovies = async (page: number): Promise<void> => {
-    try {
-      const { data } = await moviesApi.get<Movies>(`/movie/now_playing?language=en-US&page=${page}`);
+   
+      const { data } = await moviesApi.get<Movies>(`/movie/now_playing?page=${page}`);
       setMovies(data.results);
       setTotalPage(data.total_pages);
       setCurrentPage(data.page);
-    } catch (error) {
-      console.log(error);
-    }
+    
   };
 
   useEffect(() => {

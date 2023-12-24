@@ -14,6 +14,7 @@ export interface Dates {
 export interface Result {
   adult:             boolean;
   backdrop_path:     null | string;
+  media_type?:        string
   genre_ids:         number[];
   id:                number;
   original_language: OriginalLanguage;
