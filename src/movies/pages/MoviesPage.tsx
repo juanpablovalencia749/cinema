@@ -4,7 +4,6 @@ import { Details, Genre, ProductionCompany, ProductionCountry} from "../../inter
 import { useEffect, useState } from "react";
 import { getEnvVariables } from "../../helpers";
 import { ModalTrailer } from "../components/ModalTrailer";
-import { ProgressBar } from "../components/ProgressBar";
 
 
 const { VITE_IMG_PATH } = getEnvVariables();
@@ -45,14 +44,13 @@ export const MoviesPage = () => {
     genres,
     production_companies,
     production_countries,
-    release_date,
-    vote_average
+    release_date
   } = movieDetails || {};
 
   return (
     <>
     <div>
-    <article className="m-2 mt-20">
+    <article className="m-2 mt-2">
     {movieDetails ? (        
         <div className="flex flex-col gap-5 border rounded-lg shadow-lg p-5 md:grid md:grid-cols-2 md:m-20 md:items-center md:p-8 ">
           <div className="flex items-center flex-col">
@@ -74,10 +72,6 @@ export const MoviesPage = () => {
           <div>
             <span className="text-secondary">Released: </span>
             <p className="inline">{release_date}</p>
-          </div>
-          <div>
-            <span className="text-secondary">vote_average: </span>
-            <p className="inline">{vote_average}</p>
           </div>
           <div className="flex items-center">
             <span className="text-secondary">Genres:</span>
@@ -102,9 +96,8 @@ export const MoviesPage = () => {
                 .join(", ")}
             </p>
           </div>
-          </div>
-          <ProgressBar percent={70.7}/>      
-      
+          </div>  
+    
         </div>
       ) : (
         <p>Cargando Movie...</p>

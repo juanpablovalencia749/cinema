@@ -20,7 +20,7 @@ export const ShowResults: React.FC<Props> = ({ search }) => {
 
   return (
     <>
-    <ul className="space-y-4 list-none mt-3 bg-slate-300 w-52 rounded-md overflow-y-auto max-h-96">
+    <ul className="absolute z-50  space-y-4 list-none mt-3 bg-slate-300 rounded-md overflow-y-auto max-h-96">
       {search.map((item) => (
         <li
           key={item.id}

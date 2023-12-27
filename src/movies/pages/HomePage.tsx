@@ -23,10 +23,10 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center mt-20 gap-8">
+    <div className="flex flex-col items-center justify-center mt-5 gap-8">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 justify-start items-start">
-        {movies.map(({ id, title, release_date, poster_path }) => (
-          <MovieCard key={id} id={id} title={title} release_date={release_date} poster_path={poster_path} />
+        {movies.map(({ id, title, release_date, poster_path, vote_average}) => (
+          <MovieCard key={id} id={id} title={title} release_date={release_date} poster_path={poster_path}  vote_average={vote_average}/>
         ))}
       </div>
 

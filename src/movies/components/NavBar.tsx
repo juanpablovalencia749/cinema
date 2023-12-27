@@ -1,83 +1,95 @@
-import { useState } from "react";
-import { IoMdSearch } from "react-icons/io";
+// import { Search} from "./Search";
+
+// import { MagnifyingGlass } from "phosphor-react";
+import { Navbar } from "keep-react";
 import { MdMovieCreation } from "react-icons/md";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { SearchBar } from "../components";
+import { CaretDown } from "phosphor-react";
+import { Search } from ".";
+import { LinkNavbar } from "./";
 
 export const NavBar = () => {
-  const Links = [
-    { name: "Movies", link: "/" },
-    { name: "Genders", link: "/" },
-    { name: "TV Shows", link: "/" },
-  ];
 
-  const option = [
-    {item: "hola"},
-    {item: "bueno"},
-    {item: "ok"}
-  ]
-
-  const toggleMenu = ():void => {
-    setOpenMenu(!openMenu)
-  }
-
-  const toggleSearch = (): void => {
-    setOpenSearch(!openSearch)
-  }
-  
-  
-  const [openMenu, setOpenMenu] = useState(false);
-  const [openSearch, setOpenSearch] = useState(false);
 
   return (
-    <div className="shadow-md w-full fixed top-0 left-0">
-      <div className="md:flex  md:justify-stretch  items-center justify-between bg-white py-4 md:px-10 px-7">
+    <Navbar fluid={true} >
+      <Navbar.Container className="flex items-center justify-between">
+        <Navbar.Container className="flex items-center">
+          <Navbar.Brand className="flex gap-2">
+            <MdMovieCreation className='text-3xl text-secondary' name="movies"></MdMovieCreation>
+            <a href="http://localhost:5173">Monkies</a>
+          </Navbar.Brand>
+          <Navbar.Divider></Navbar.Divider>
+          <Navbar.Container
+            tag="ul"
+            className="lg:flex hidden items-center justify-between gap-8"
+          >
+             <Navbar.Link linkName="Movies" />
+             <LinkNavbar/>
 
-        <div className="font-bold text-2xl cursor-pointer flex items-center text-gray-800">
-          <span className="text-3xl text-secondary mr-1 pt-2">
-            <MdMovieCreation name="logo-movies"></MdMovieCreation>
-          </span>
-          <a href="http://localhost:5173">Movies</a>
-        </div>
+            <Navbar.Link linkName="TV Shows" />
+          </Navbar.Container>
 
-        <div
-          onClick={toggleSearch}
-          className={`text-3xl absolute right-16 top-6 cursor-pointer md:hidden ${  openSearch ? "hidden" : "block"}`}>
-          <IoMdSearch name={openSearch ? "close" : "menu"}></IoMdSearch>
-        </div>
-
-       
-        <SearchBar openSearch ={openSearch}/>
-         
-
-        <div
-          onClick={toggleMenu}
-          className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"> 
-          <GiHamburgerMenu name={openMenu ? "close" : "menu"}></GiHamburgerMenu>
-        </div>
-
-
-        <ul
-          className={`md:flex md:items-start md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-            openMenu ? "top-20 " : "top-[-490px]"
-          }`}
+          <Navbar.Collapse
+          collapseType="sidebar"
+          className="fixed right-0 top-0 bg-white w-full p-10 xl:!w-1/6 lg:!w-2/6 md:!w-1/2"
         >
-          {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7 relative group">
-            <a href={link.link} className="text-gray-800 hover:text-gray-400 duration-500 block px-4 py-5 transition-all">
-              {link.name}
-            </a>
-            
-            <ul className="absolute hidden bg-purple-700 w-full z-50 group-hover:block mt-2">
-              {option.map(({item}) => (
-              <li key={item}> <a href="#" className="block px-4 py-2 text-white hover:bg-purple-600">{item}</a></li>
-              ))}
-            </ul>
-          </li>
-          ))}
-        </ul>
+          <Navbar.Container tag="ul" className="flex flex-col gap-5">
 
-      </div>
-    </div>
+              <Search/>
+            <Navbar.Link
+              linkName="Movies"
+              icon={<CaretDown size={20} />}
+              className="!py-0"
+            />
+            <ul className="grid grid-cols-2 gap-2">
+              <li>Popular</li>
+              <li>Now Playing</li>
+              <li>Upcoming</li>
+              <li>Top Rated</li>
+              </ul>
+            <Navbar.Link
+              linkName="Generes"
+              icon={<CaretDown size={20} />}
+              className="!py-0"
+            />
+             <ul className="grid grid-cols-2 gap-2">
+              <li>Action</li>
+              <li>Adventure</li>
+              <li>Family</li>
+              <li>children</li>
+              <li>Hover</li>
+              </ul>
+            <Navbar.Link
+              linkName="TV Shows"
+              icon={<CaretDown size={20} />}
+              className="!py-0"
+            /> 
+             <ul className="grid grid-cols-2 gap-2
+             ">
+              <li>Popular</li>
+              <li>Airing Today</li>
+              <li>On TV</li>
+              <li>Top Rated</li>
+              </ul>
+          </Navbar.Container>
+        </Navbar.Collapse>
+
+        </Navbar.Container>
+
+        <Navbar.Container className="flex gap-2">
+          <div className="hidden lg:block">
+            <Search/>
+          </div>
+          <Navbar.Toggle />
+        </Navbar.Container>
+      </Navbar.Container>
+    </Navbar>
   );
-};
+}
+
+
+
+
+
+
+

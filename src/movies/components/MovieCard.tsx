@@ -1,27 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getEnvVariables } from "../../helpers";
+import { ProgressBar } from ".";
 
 const { VITE_IMG_PATH } = getEnvVariables();
 
 interface Props {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
+  id: number
+  title: string
+  poster_path: string
+  release_date: string
+  vote_average: number
 }
 
-export const MovieCard: React.FC<Props> = ({ id, title, poster_path, release_date }) => {
+export const MovieCard: React.FC<Props> = ({ id, title, poster_path, release_date, vote_average }) => {
   const urlImg = `${VITE_IMG_PATH}/${poster_path}`;
   const titleMain = title.length > 20 ? `${title.substring(0, 20)}...` : title;
   const param = `${id}-${title.toLowerCase().replace(/\s+/g, '-')}`
 
   return (
     <Link to={`/movie/${param}`}>
-      <div key={id} className="shadow-md w-44 md:w-56 rounded-md flex flex-col items-start justify-start">
+      <div key={id} className="relative shadow-md w-44 md:w-56 rounded-md flex flex-col items-start justify-start">
         <img className="rounded-md" src={urlImg} alt={title} />
         <h5 className="text-secondary">{titleMain}</h5>
         <p>{release_date}</p>
+        <div className="absolute z-50 ">
+        <ProgressBar  vote_average={vote_average}/>    
+        </div>
       </div>
     </Link>
   );

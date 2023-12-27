@@ -2,13 +2,13 @@ import { useRef, useState } from "react"
 import { moviesApi } from "../../api/moviesApi"
 import { Movies, Result } from "../../interface/movies"
 import { ShowResults } from "."
+import { SearchBar } from "keep-react";
+import { ArrowRight, MagnifyingGlass } from "phosphor-react";
 
-interface Props {
-  openSearch:boolean
-}
 
-export const SearchBar: React.FC<Props> = ({openSearch}) => {
 
+export const Search = () :JSX.Element => {
+    
   const [search, setSearch] = useState<Result[]>([])
   const debounceRef = useRef<number>()
 
@@ -21,7 +21,6 @@ export const SearchBar: React.FC<Props> = ({openSearch}) => {
       
 
   }
-
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>):void => {
     if (event.currentTarget) {
@@ -36,17 +35,21 @@ export const SearchBar: React.FC<Props> = ({openSearch}) => {
   }   
 
   return (
-    <>
-      <div className={`absolute right-16 top-5 transition-all duration-700 ease-out transform ${openSearch ? 'scale-100 bounce' : 'scale-0 pointer-events-none'} md:scale-100 md:pointer-events-auto`}>
-        <input 
-        className="w-36 md:w-52 border border-solid rounded-full p-1"
-        type="text"
-        placeholder="Search"
-        onChange={handleChange}/>
-
-      <ShowResults  search={search}/>
-    </div>
-
+    <> 
+      <SearchBar
+      size={'sm'}
+      placeholder="Search"
+      bordered={false}
+      addon={<MagnifyingGlass size={20} color="#5E718D" />}
+      addonPosition="left"
+      icon={<ArrowRight size={20} color="#5E718D" />}
+      iconPosition="right"    
+      handleOnChange={handleChange}
+    >  
+      <ShowResults search={search}/>
+    </SearchBar>
     </>
-  )
+    
+  );
 }
+
