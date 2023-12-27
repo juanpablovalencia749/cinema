@@ -30,7 +30,7 @@ export const ModalTrailer :React.FC<Props> = ({ trailerKey }) => {
         onClose={onCloseModal}
       >
         <Modal.Body>
-          <div className="flex justify-end mb-2">
+          <div className="flex justify-end  bg-black">
             <IoMdCloseCircleOutline className="w-8 h-8" onClick={onClickOne}/>
           </div>
         <YouTube

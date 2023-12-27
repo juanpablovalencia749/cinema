@@ -1,57 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { moviesApi } from "../../api/moviesApi";
-import { Details, Genre, ProductionCompany, ProductionCountry} from "../../interface/details";
-import { useEffect, useState } from "react";
-import { getEnvVariables } from "../../helpers";
-import { ModalTrailer } from "../components/ModalTrailer";
 
-
-const { VITE_IMG_PATH } = getEnvVariables();
-
-type SelectId = string | undefined;
-
-
-export const MoviesPage = () => {
-
- const navigate = useNavigate()
-  const [movieDetails, setMovieDetails] = useState<Details | null  >(null);
-  const [trailerKey, setTrailerKey] = useState('')
-
-  const { id } = useParams<string>();
-  const movieId: SelectId = id?.includes("-") ? id.split("-")[0] : undefined;
-  const urlImg:string =`${VITE_IMG_PATH}/${movieDetails?.poster_path}`
-
-
-  const getMovieDetails = async (id: SelectId): Promise<void> => {
-
-      if (!id) return navigate('/home')
-
-      const { data } = await moviesApi.get<Details>(`/movie/${id}?append_to_response=videos`);
-      setMovieDetails(data);
-
-      if (data.videos) {
-        const trailer = data.videos?.results.find((vid) => vid.name === 'Official Trailer')
-        trailer && setTrailerKey(trailer.key);
-      }
-  };
-
-  useEffect(() => {
-    getMovieDetails(movieId);
-  }, [movieId]);
-
-  const {
-    title,
-    overview,
-    genres,
-    production_companies,
-    production_countries,
-    release_date
-  } = movieDetails || {};
-
+export const TvPage = () => {
   return (
-    <>
+ 
     <article className="m-2 mt-2">
-    {movieDetails ? (        
+    {tvDetails ? (        
         <div className="flex flex-col gap-5 border rounded-lg shadow-lg p-5 md:grid md:grid-cols-2 md:m-20 md:items-center md:p-8 ">
           <div className="flex items-center flex-col">
             <img
@@ -103,6 +55,6 @@ export const MoviesPage = () => {
         <p>Cargando Movie...</p>
       )}
     </article>
-    </>
-  );
-};
+ 
+  )
+}

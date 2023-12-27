@@ -4,38 +4,37 @@
 import { Navbar } from "keep-react";
 import { MdMovieCreation } from "react-icons/md";
 import { CaretDown } from "phosphor-react";
-import { Search } from ".";
+import { SearchBox } from ".";
 import { LinkNavbar } from "./";
 
 export const NavBar = () => {
 
 
   return (
-    <Navbar fluid={true} >
+    <Navbar fluid={true} className="bg-primary" >
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
-          <Navbar.Brand className="flex gap-2">
-            <MdMovieCreation className='text-3xl text-secondary' name="movies"></MdMovieCreation>
-            <a href="http://localhost:5173">Monkies</a>
+          <Navbar.Brand className="flex gap-2 items-center">
+            <MdMovieCreation className='text-3xl text-white' name="movies"></MdMovieCreation>
+            <a href="http://localhost:5173">Cinema</a>
           </Navbar.Brand>
           <Navbar.Divider></Navbar.Divider>
           <Navbar.Container
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-8"
           >
-             <Navbar.Link linkName="Movies" />
+             <Navbar.Link/> <a href="">Movies</a> 
              <LinkNavbar/>
-
-            <Navbar.Link linkName="TV Shows" />
+            <Navbar.Link/><a href="">TV Shows</a> 
           </Navbar.Container>
 
           <Navbar.Collapse
           collapseType="sidebar"
-          className="fixed right-0 top-0 bg-white w-full p-10 xl:!w-1/6 lg:!w-2/6 md:!w-1/2"
+          className="fixed right-0 top-0 bg-primary w-full p-10 xl:!w-1/6 lg:!w-2/6 md:!w-1/2"
         >
           <Navbar.Container tag="ul" className="flex flex-col gap-5">
 
-              <Search/>
+              <SearchBox/>
             <Navbar.Link
               linkName="Movies"
               icon={<CaretDown size={20} />}
@@ -78,9 +77,9 @@ export const NavBar = () => {
 
         <Navbar.Container className="flex gap-2">
           <div className="hidden lg:block">
-            <Search/>
+            <SearchBox/>
           </div>
-          <Navbar.Toggle />
+          <Navbar.Toggle className=""/>
         </Navbar.Container>
       </Navbar.Container>
     </Navbar>

@@ -9,10 +9,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ vote_average }) => {
   const targetPercent = Math.round(number);
 
   const getColorClass = () => {
-    if (targetPercent >= 80) return 'text-green-500';
-    if (targetPercent >= 60) return 'text-orange-500';
-    if (targetPercent >= 40) return 'text-yellow-500';
-    return 'text-red-500';
+    if (targetPercent >= 70) return 'text-[#21d07a]';
+    if (targetPercent <= 69 && targetPercent >= 40) return 'text-[#9b9e27]';
+    if (targetPercent < 40) return 'text-[#db2360]';
   };
 
   const animatedCircleRef = useRef<SVGCircleElement | null>(null);
@@ -25,12 +24,12 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ vote_average }) => {
   }, [targetPercent]);
 
   return (
-    <div className="relative w-14 h-14">
+    <div className="relative w-10 h-10">
       <svg className="absolute w-full h-full" viewBox="0 0 32 32">
         <circle
           strokeWidth="4"
           fill="transparent"
-          stroke="#978e8e"
+          stroke="#204529"
           r="14"
           cx="16"
           cy="16"
@@ -38,9 +37,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ vote_average }) => {
         <circle
           ref={animatedCircleRef}
           className={`stroke-current ${getColorClass()}`}
-          strokeWidth="4"
+          strokeWidth="2"
           strokeLinecap="round"
-          fill="#5f60a3"
+          fill="#081c22"
           r="14"
           cx="16"
           cy="16"

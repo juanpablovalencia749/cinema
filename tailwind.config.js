@@ -12,6 +12,15 @@ export default {
       colors: {
         secondary: "#070491",
       },
+      backgroundColor: {
+        primary: '#080f28',
+      },
+      textColor: {
+        white: '#ffffff',
+      },
+      fontFamily: {
+        sans: ['sans-serif'],
+      },
     },
   },
   plugins: [],
