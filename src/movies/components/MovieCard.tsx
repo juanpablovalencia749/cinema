@@ -20,14 +20,14 @@ export const MovieCard: React.FC<Props> = ({ id, title, poster_path, release_dat
 
   return (
     <Link to={`/movie/${param}`}>
-      <div key={id} className="relative shadow-md w-44 md:w-56 rounded-md flex flex-col items-start justify-start">
-        <img className="rounded-md" src={urlImg} alt={title} />
-        <div className="absolute bottom-12">
-        <ProgressBar  vote_average={vote_average}/>
-        </div>
-        <h5 className="text-white 600 mt-5">{titleMain}</h5>
-        <p>{release_date}</p>
-      </div>
+        <div key={id} className="relative bg-[#0f1530] p-2 shadow-md w-44 md:w-56 rounded-md flex flex-col items-start justify-start overflow-hidden hover:shadow-lg transform transition-transform hover:scale-105">
+          <img className="rounded-md" src={urlImg} alt={title} />
+          <div className="absolute bottom-14">
+            <ProgressBar vote_average={vote_average}/>
+           </div>
+          <h5 className="text-white 600 mt-5">{titleMain}</h5>
+          <p>{release_date}</p>
+    </div>
     </Link>
   );
 };

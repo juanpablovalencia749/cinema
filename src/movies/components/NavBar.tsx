@@ -1,6 +1,3 @@
-// import { Search} from "./Search";
-
-// import { MagnifyingGlass } from "phosphor-react";
 import { Navbar } from "keep-react";
 import { MdMovieCreation } from "react-icons/md";
 import { CaretDown } from "phosphor-react";
@@ -15,7 +12,7 @@ export const NavBar = () => {
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
           <Navbar.Brand className="flex gap-2 items-center">
-            <MdMovieCreation className='text-3xl text-white' name="movies"></MdMovieCreation>
+            <MdMovieCreation className='text-3xl text-white'></MdMovieCreation>
             <a href="http://localhost:5173">Cinema</a>
           </Navbar.Brand>
           <Navbar.Divider></Navbar.Divider>

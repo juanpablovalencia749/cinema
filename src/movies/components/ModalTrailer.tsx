@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "keep-react";
 import YouTube from 'react-youtube';
-import { IoMdCloseCircleOutline } from "react-icons/io";
+import { IoMdCloseCircleOutline, IoMdPlay  } from "react-icons/io";
 
 interface Props  {
   trailerKey:string
@@ -20,13 +20,21 @@ export const ModalTrailer :React.FC<Props> = ({ trailerKey }) => {
 
   return (
     <>
-      <button  onClick={onClickOne} className="px-6 py-3 bg-secondary rounded-full text-white hover:bg-blue-800">Watch Trailer</button>
+    <button
+        onClick={onClickOne}
+        className="px-6 py-3 bg-secondary rounded-full text-white  hover:text-black transform hover:translate-y-[-2px] transition-transform duration-300 ease-in-out"
+      >
+        <span className="inline-block mr-2 align-middle">
+          <IoMdPlay />
+        </span>
+        Watch Trailer
+      </button>
 
       <Modal
         size="2xl"
         show={showModal}
         position="center"
-        style={{ padding: 0, margin: 0 }}
+        style={{ padding: 0, margin: 0, background:'#000' }}
         onClose={onCloseModal}
       >
         <Modal.Body>
