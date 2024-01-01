@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { moviesApi } from "../../api/moviesApi";
-import { Details, Genre, ProductionCompany, ProductionCountry} from "../../interface/details";
+import { DetailsMovie, Genre, ProductionCompany, ProductionCountry} from "../../interface/detailsMovies.ts";
 import { useEffect, useState } from "react";
 import { getEnvVariables } from "../../helpers";
 import { ModalTrailer } from "../components/ModalTrailer";
@@ -14,7 +14,7 @@ type SelectId = string | undefined;
 export const MoviesPage = () => {
 
  const navigate = useNavigate()
-  const [movieDetails, setMovieDetails] = useState<Details | null  >(null);
+  const [movieDetails, setMovieDetails] = useState<DetailsMovie | null  >(null);
   const [trailerKey, setTrailerKey] = useState('')
 
   const { id } = useParams<string>();
@@ -26,7 +26,7 @@ export const MoviesPage = () => {
 
       if (!id) return navigate('/home')
 
-      const { data } = await moviesApi.get<Details>(`/movie/${id}?append_to_response=videos`);
+      const { data } = await moviesApi.get<DetailsMovie>(`/movie/${id}?append_to_response=videos`);
       setMovieDetails(data);
 
       if (data.videos) {

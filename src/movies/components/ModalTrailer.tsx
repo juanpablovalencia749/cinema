@@ -31,19 +31,23 @@ export const ModalTrailer :React.FC<Props> = ({ trailerKey }) => {
       </button>
 
       <Modal
-        size="2xl"
-        show={showModal}
-        position="center"
-        style={{ padding: 0, margin: 0, background:'#000' }}
-        onClose={onCloseModal}
-      >
-        <Modal.Body>
-          <div className="flex justify-end  bg-black">
-            <IoMdCloseCircleOutline className="w-8 h-8" onClick={onClickOne}/>
-          </div>
+      size="2xl"
+      show={showModal}
+      position="center"
+      style={{ 
+        background: '#000', 
+        padding: 0, 
+        margin: 0 
+      }}
+      onClose={onCloseModal}
+    >
+      <Modal.Body className="bg-[#000] ">
+        <div className="flex justify-end">
+          <IoMdCloseCircleOutline className="w-8 h-8" onClick={onClickOne} />
+        </div>
         <YouTube
           videoId={trailerKey}
-          className="w-full h-72 p-0 m-0"
+          className="w-full h-72"
           opts={{
             width: '100%',
             height: '100%',
@@ -59,11 +63,9 @@ export const ModalTrailer :React.FC<Props> = ({ trailerKey }) => {
             },
           }}
         />
-        </Modal.Body>
-      </Modal>
+      </Modal.Body>
+    </Modal>
 
-
-     
     </>
   );
 }

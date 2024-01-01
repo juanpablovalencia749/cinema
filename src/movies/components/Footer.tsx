@@ -18,10 +18,10 @@ export const Footer = () => {
                 <RiInstagramLine className="text-3xl" />
               </a>
               <a href="#" className="">
-                <RiLinkedinBoxFill className="text-3xl" />
+                <RiGithubFill className="text-3xl" />
               </a>
               <a href="#" className="">
-                <RiGithubFill className="text-3xl" />
+                <RiLinkedinBoxFill className="text-3xl" />
               </a>
             </li>
           </ul>

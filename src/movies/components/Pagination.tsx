@@ -1,24 +1,24 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 interface Props {
   totalPage: number,
   currentPage: number
-  getMovies: (page:number) => void
+  getData: (page:number) => void
 }
 
-export const Pagination :React.FC<Props> = ({totalPage, getMovies, currentPage}) => {
+export const Pagination :React.FC<Props> = ({totalPage, getData, currentPage}) => {
 
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const nextPage = (page: number): void => {
-    getMovies(page + 1);
-    navigate(`/home?page=${page + 1}`);
+    getData(page + 1);
+    // navigate(`/home?page=${page + 1}`);
   };
 
   const previousPage = (page: number): void => {
-    getMovies(page - 1);
-    navigate(`/home?page=${page - 1}`);
+    getData(page - 1);
+    // navigate(`/home?page=${page - 1}`);
   };
   
   return (

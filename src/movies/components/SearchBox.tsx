@@ -8,13 +8,13 @@ import { ArrowRight, MagnifyingGlass } from "phosphor-react";
 export const SearchBox = (): JSX.Element => {
   const [search, setSearch] = useState<Search[]>([]);
   const debounceRef = useRef<number>();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const searchMoviesByQuery = async (query: string): Promise<void> => {
     const { data } = await moviesApi.get<Multi>(
       `https://api.themoviedb.org/3/search/multi?query=${query}`
     );
-    setSearch(data.results);
-    console.log(data.results);
+    setSearch(data.results)
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -31,6 +31,7 @@ export const SearchBox = (): JSX.Element => {
 
   return (
     <>
+    <div ref={containerRef}>
       <SearchBar
         size={"md"}
         placeholder="Search"
@@ -40,8 +41,9 @@ export const SearchBox = (): JSX.Element => {
         iconPosition="right"
         handleOnChange={handleChange}
       >
-        <ShowResults search={search}  handleChange = {handleChange}/>
+      <ShowResults search={search}  handleChange = {handleChange} containerRef={containerRef}/>  
       </SearchBar>
+      </div>
     </>
   );
 };
