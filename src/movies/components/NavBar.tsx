@@ -105,16 +105,16 @@ export const NavBar = () => {
         <Navbar.Container className="flex items-center">
           <Navbar.Brand className="flex gap-2 items-center">
             <MdMovieCreation className='text-3xl text-white'></MdMovieCreation>
-            <a href="http://localhost:5173">Cinema</a>
+            <a href="https://cinema749.netlify.app">Cinema</a>
           </Navbar.Brand>
           <Navbar.Divider></Navbar.Divider>
           <Navbar.Container
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-8"
           >
-             <LinkNavbar title = { 'Movies' } option = {optionMovies} width= {'40'} col = {'1'} />
-             <LinkNavbar title = { 'Genders' } option = {optionGender} width= {'72'} col = {'2'} />
-             <LinkNavbar title = { 'Tv Shows'} option = {optionTvShows} width= {'40'} col = {'1'} />
+             <LinkNavbar title = { 'Movies' } option = {optionMovies} sizeWidth= {'40'} sizeCol = {'1'} />
+             <LinkNavbar title = { 'Genders' } option = {optionGender} sizeWidth= {'80'} sizeCol = {'2'} />
+             <LinkNavbar title = { 'Tv Shows'} option = {optionTvShows} sizeWidth= {'40'} sizeCol = {'1'} />
              
           </Navbar.Container>
 
