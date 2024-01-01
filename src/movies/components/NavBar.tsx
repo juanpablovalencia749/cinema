@@ -98,9 +98,9 @@ const optionTvShows = [
 
 export const NavBar = () => {
 
-
   return (
-    <Navbar fluid={false} rounded={true}  className="bg-primary shadow-lg shadow-custom" >
+    <Navbar 
+     fluid={false} rounded={true}  className="bg-primary shadow-lg shadow-custom" >
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
           <Navbar.Brand className="flex gap-2 items-center">
@@ -128,20 +128,25 @@ export const NavBar = () => {
 
           
             <Navbar.Link
+              href ="#"
               linkName="Movies"
               icon={<CaretDown size={20} />}
               className="!py-0"
             />
              <LinkNabarMobile option={optionMovies}/>
 
+             <Navbar.Divider></Navbar.Divider>
             <Navbar.Link
+              href ="#"
               linkName="Genders"
               icon={<CaretDown size={20} />}
               className="!py-0"
             />
               <LinkNabarMobile option={optionGender}/>
 
+              <Navbar.Divider></Navbar.Divider>
             <Navbar.Link
+              href ="#"
               linkName="TV Shows"
               icon={<CaretDown size={20} />}
               className="!py-0"
