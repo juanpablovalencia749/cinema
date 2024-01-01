@@ -9,8 +9,8 @@ type Item = {
 interface Props {
   title:string
   option: Item[]
-  width: number
-  col: number
+  width: string
+  col: string
 }
 
 
