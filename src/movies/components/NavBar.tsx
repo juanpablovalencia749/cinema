@@ -112,9 +112,9 @@ export const NavBar = () => {
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-8"
           >
-             <LinkNavbar title = { 'Movies' } option = {optionMovies} sizeWidth= {'40'} sizeCol = {'1'} />
-             <LinkNavbar title = { 'Genders' } option = {optionGender} sizeWidth= {'80'} sizeCol = {'2'} />
-             <LinkNavbar title = { 'Tv Shows'} option = {optionTvShows} sizeWidth= {'40'} sizeCol = {'1'} />
+             <LinkNavbar title = { 'Movies' } option = {optionMovies}   sizeCol = {'1'} />
+             <LinkNavbar title = { 'Genders' } option = {optionGender}  sizeCol = {'2'} />
+             <LinkNavbar title = { 'Tv Shows'} option = {optionTvShows} sizeCol = {'1'} />
              
           </Navbar.Container>
 
